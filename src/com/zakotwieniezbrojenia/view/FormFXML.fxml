@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="469.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zakotwieniezbrojenia.controller.FormFXMLController">
+    <children>
+      <Label layoutX="235.0" layoutY="52.0" text="Klasa betonu" />
+      <Label layoutX="443.0" layoutY="52.0" text="Klasa stali" />
+      <Label layoutX="23.0" layoutY="52.0" text="Średnica pręta" />
+      <Pane id="pane" layoutX="14.0" layoutY="80.0" prefHeight="120.0" prefWidth="162.0" stylesheets="@Style.css">
+         <children>
+            <RadioButton fx:id="pretProstyRadioButton" layoutX="38.0" layoutY="40.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" selected="true" text="Pręt prosty">
+               <toggleGroup>
+                  <ToggleGroup fx:id="krztaltPreta" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="pretZagietyRadioButton" layoutX="38.0" layoutY="70.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="Pręt zagięty" toggleGroup="$krztaltPreta" />
+            <Label layoutX="25.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Krztałt pręta" />
+         </children>
+      </Pane>
+      <Pane id="pane" layoutX="159.0" layoutY="80.0" prefHeight="120.0" prefWidth="162.0" stylesheets="@Style.css">
+         <children>
+            <RadioButton fx:id="pretSciskanyRadioButton" layoutX="38.0" layoutY="40.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="Pręt ściskany">
+               <toggleGroup>
+                  <ToggleGroup fx:id="oddzialywanieNaPret" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="pretRozciaganyRadioButton" layoutX="38.0" layoutY="70.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" selected="true" text="Pręt rozciągany" toggleGroup="$oddzialywanieNaPret" />
+            <Label layoutX="25.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Odziaływanie na pręt" />
+         </children>
+      </Pane>
+      <ComboBox fx:id="klasaBetonuComboBox" layoutX="322.0" layoutY="48.0" onAction="#obliczActionEvent" prefHeight="25.0" prefWidth="80.0" />
+      <ComboBox fx:id="klasaStaliComboBox" layoutX="516.0" layoutY="48.0" onAction="#obliczActionEvent" prefHeight="25.0" prefWidth="80.0" />
+      <ComboBox fx:id="srednicaPretaComboBox" layoutX="110.0" layoutY="48.0" onAction="#obliczActionEvent" prefHeight="25.0" prefWidth="80.0" />
+      <Pane id="pane" layoutX="14.0" layoutY="287.0" prefHeight="162.0" prefWidth="308.0" stylesheets="@Style.css">
+         <children>
+            <Label layoutX="25.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Inne parametry" />
+            <CheckBox fx:id="dobreWarunkiPrzyczepnosciCheckBox" layoutX="25.0" layoutY="43.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="Dobre warunki przyczepności" />
+            <CheckBox fx:id="obciazenieWielokrotnieZmienneCheckBox" layoutX="25.0" layoutY="73.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="Obciążenie wielokrotnie zmienne" />
+            <CheckBox fx:id="pretyGrupowaneParamiCheckBox" layoutX="25.0" layoutY="104.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="Pręty grupowane parami" />
+         </children>
+      </Pane>
+      <Pane id="pane" layoutX="314.0" layoutY="185.0" prefHeight="264.0" prefWidth="308.0" stylesheets="@Style.css">
+         <children>
+            <Label layoutX="25.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Wyniki" />
+            <VBox alignment="CENTER" layoutX="22.0" layoutY="27.0" prefHeight="210.0" prefWidth="264.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="196.0" text="Podstawowa długość zakotwienia lb" wrapText="true" />
+                  <Label fx:id="wynik_lb" text="Wynik lb" textFill="#3100f5">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="218.0" text="Obliczeniowa długość zakotwienia lbd" wrapText="true" />
+                  <Label fx:id="wynik_lbd" text="Wynik lbd" textFill="#3100f5">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="218.0" text="Minimalna długość zakotwienia lb,min" wrapText="true" />
+                  <Label fx:id="wynik_lb_min" text="Wynik lb,min" textFill="#3100f5">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane id="pane" layoutX="14.0" layoutY="185.0" prefHeight="120.0" prefWidth="308.0" stylesheets="@Style.css">
+         <children>
+            <RadioButton fx:id="pretGladkiRadioButton" layoutX="38.0" layoutY="40.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" selected="true" text="Pręt gładki">
+               <toggleGroup>
+                  <ToggleGroup fx:id="powierzchniaPreta" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="pretZebrowanyRadioButton" layoutX="38.0" layoutY="70.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="Pręt żebrowany" toggleGroup="$powierzchniaPreta" />
+            <Label layoutX="26.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Powierzchnia pręta" />
+         </children>
+      </Pane>
+      <Pane id="pane" layoutX="314.0" layoutY="80.0" prefHeight="120.0" prefWidth="308.0" stylesheets="@Style.css">
+         <children>
+            <Label layoutX="26.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Pole zbrojenia" />
+            <TextField fx:id="zbrojenieWymaganeTextField" layoutX="191.0" layoutY="35.0" onKeyReleased="#obliczKeyEvent" prefHeight="25.0" prefWidth="65.0" text="1" />
+            <TextField fx:id="zbrojeniePrzyjeteTextField" layoutX="191.0" layoutY="68.0" onKeyReleased="#obliczKeyEvent" prefHeight="25.0" prefWidth="65.0" text="1" />
+            <Label layoutX="26.0" layoutY="39.0" prefHeight="17.0" prefWidth="176.0" text="Zbrojenie wymagane As.req" />
+            <Label layoutX="26.0" layoutY="72.0" prefHeight="17.0" prefWidth="176.0" text="Zbrojenie przyjęte As.prov" />
+            <Label layoutX="261.0" layoutY="39.0" prefHeight="17.0" prefWidth="36.0" text="cm2" />
+            <Label layoutX="261.0" layoutY="71.0" prefHeight="17.0" prefWidth="36.0" text="cm2" />
+         </children>
+      </Pane>
+      <Pane layoutX="13.0" layoutY="6.0" />
+      <MenuBar layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="638.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Plik">
+            <items>
+              <MenuItem fx:id="zamknijMenuItem" mnemonicParsing="false" onAction="#zamknijAction" text="Zamknij" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Pomoc">
+            <items>
+              <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" onAction="#infoAction" text="O programie" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+    </children>
+</AnchorPane>
