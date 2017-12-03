@@ -113,7 +113,6 @@ public class FormFXMLController implements Initializable {
         try {
             obliczZakotwieniePreta();
         } catch (Exception e) {
-            alert();
         }
     }
 

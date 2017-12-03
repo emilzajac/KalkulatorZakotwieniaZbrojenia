@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="469.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zakotwieniezbrojenia.controller.FormFXMLController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="469.0" maxWidth="638.0" minHeight="469.0" minWidth="622.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="469.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zakotwieniezbrojenia.controller.FormFXMLController">
     <children>
       <Label layoutX="235.0" layoutY="52.0" text="Klasa betonu" />
       <Label layoutX="443.0" layoutY="52.0" text="Klasa stali" />
@@ -102,7 +102,7 @@
          </children>
       </Pane>
       <Pane layoutX="13.0" layoutY="6.0" />
-      <MenuBar layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="638.0">
+      <MenuBar layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="634.0">
         <menus>
           <Menu mnemonicParsing="false" text="Plik">
             <items>
