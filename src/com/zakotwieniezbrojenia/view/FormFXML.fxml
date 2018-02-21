@@ -7,19 +7,22 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="469.0" maxWidth="638.0" minHeight="469.0" minWidth="622.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="469.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zakotwieniezbrojenia.controller.FormFXMLController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="627.0" maxWidth="966.0" minHeight="469.0" minWidth="622.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="489.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zakotwieniezbrojenia.controller.FormFXMLController">
     <children>
-      <Label layoutX="235.0" layoutY="52.0" text="Klasa betonu" />
-      <Label layoutX="443.0" layoutY="52.0" text="Klasa stali" />
-      <Label layoutX="23.0" layoutY="52.0" text="Średnica pręta" />
-      <Pane id="pane" layoutX="14.0" layoutY="80.0" prefHeight="120.0" prefWidth="162.0" stylesheets="@Style.css">
+      <Label layoutX="235.0" layoutY="79.0" text="Klasa betonu" />
+      <Label layoutX="443.0" layoutY="79.0" text="Klasa stali" />
+      <Label layoutX="23.0" layoutY="79.0" text="Średnica pręta" />
+      <Pane id="pane" layoutX="14.0" layoutY="107.0" prefHeight="120.0" prefWidth="162.0" stylesheets="@Style.css">
          <children>
             <RadioButton fx:id="pretProstyRadioButton" layoutX="38.0" layoutY="40.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" selected="true" text="Pręt prosty">
                <toggleGroup>
@@ -30,7 +33,7 @@
             <Label layoutX="25.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Krztałt pręta" />
          </children>
       </Pane>
-      <Pane id="pane" layoutX="159.0" layoutY="80.0" prefHeight="120.0" prefWidth="162.0" stylesheets="@Style.css">
+      <Pane id="pane" layoutX="159.0" layoutY="107.0" prefHeight="120.0" prefWidth="162.0" stylesheets="@Style.css">
          <children>
             <RadioButton fx:id="pretSciskanyRadioButton" layoutX="38.0" layoutY="40.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="Pręt ściskany">
                <toggleGroup>
@@ -41,10 +44,10 @@
             <Label layoutX="25.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Odziaływanie na pręt" />
          </children>
       </Pane>
-      <ComboBox fx:id="klasaBetonuComboBox" layoutX="322.0" layoutY="48.0" onAction="#obliczActionEvent" prefHeight="25.0" prefWidth="80.0" />
-      <ComboBox fx:id="klasaStaliComboBox" layoutX="516.0" layoutY="48.0" onAction="#obliczActionEvent" prefHeight="25.0" prefWidth="80.0" />
-      <ComboBox fx:id="srednicaPretaComboBox" layoutX="110.0" layoutY="48.0" onAction="#obliczActionEvent" prefHeight="25.0" prefWidth="80.0" />
-      <Pane id="pane" layoutX="14.0" layoutY="287.0" prefHeight="162.0" prefWidth="308.0" stylesheets="@Style.css">
+      <ComboBox fx:id="klasaBetonuComboBox" layoutX="322.0" layoutY="75.0" onAction="#obliczActionEvent" prefHeight="25.0" prefWidth="80.0" />
+      <ComboBox fx:id="klasaStaliComboBox" layoutX="516.0" layoutY="75.0" onAction="#obliczActionEvent" prefHeight="25.0" prefWidth="80.0" />
+      <ComboBox fx:id="srednicaPretaComboBox" layoutX="110.0" layoutY="75.0" onAction="#obliczActionEvent" prefHeight="25.0" prefWidth="80.0" />
+      <Pane id="pane" layoutX="14.0" layoutY="314.0" prefHeight="162.0" prefWidth="308.0" stylesheets="@Style.css">
          <children>
             <Label layoutX="25.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Inne parametry" />
             <CheckBox fx:id="dobreWarunkiPrzyczepnosciCheckBox" layoutX="25.0" layoutY="43.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="Dobre warunki przyczepności" />
@@ -52,7 +55,7 @@
             <CheckBox fx:id="pretyGrupowaneParamiCheckBox" layoutX="25.0" layoutY="104.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="Pręty grupowane parami" />
          </children>
       </Pane>
-      <Pane id="pane" layoutX="314.0" layoutY="185.0" prefHeight="264.0" prefWidth="308.0" stylesheets="@Style.css">
+      <Pane id="pane" layoutX="314.0" layoutY="212.0" prefHeight="264.0" prefWidth="308.0" stylesheets="@Style.css">
          <children>
             <Label layoutX="25.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Wyniki" />
             <VBox alignment="CENTER" layoutX="22.0" layoutY="27.0" prefHeight="210.0" prefWidth="264.0" spacing="10.0">
@@ -79,7 +82,7 @@
             </VBox>
          </children>
       </Pane>
-      <Pane id="pane" layoutX="14.0" layoutY="185.0" prefHeight="120.0" prefWidth="308.0" stylesheets="@Style.css">
+      <Pane id="pane" layoutX="14.0" layoutY="212.0" prefHeight="120.0" prefWidth="308.0" stylesheets="@Style.css">
          <children>
             <RadioButton fx:id="pretGladkiRadioButton" layoutX="38.0" layoutY="40.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" selected="true" text="Pręt gładki">
                <toggleGroup>
@@ -90,7 +93,7 @@
             <Label layoutX="26.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Powierzchnia pręta" />
          </children>
       </Pane>
-      <Pane id="pane" layoutX="314.0" layoutY="80.0" prefHeight="120.0" prefWidth="308.0" stylesheets="@Style.css">
+      <Pane id="pane" layoutX="314.0" layoutY="107.0" prefHeight="120.0" prefWidth="308.0" stylesheets="@Style.css">
          <children>
             <Label layoutX="26.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Pole zbrojenia" />
             <TextField fx:id="zbrojenieWymaganeTextField" layoutX="191.0" layoutY="35.0" onKeyReleased="#obliczKeyEvent" prefHeight="25.0" prefWidth="65.0" text="1" />
@@ -102,7 +105,7 @@
          </children>
       </Pane>
       <Pane layoutX="13.0" layoutY="6.0" />
-      <MenuBar layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="634.0">
+      <MenuBar layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="916.0">
         <menus>
           <Menu mnemonicParsing="false" text="Plik">
             <items>
@@ -116,5 +119,25 @@
           </Menu>
         </menus>
       </MenuBar>
+      <Separator layoutX="622.0" layoutY="27.0" orientation="VERTICAL" prefHeight="424.0" prefWidth="12.0" />
+      <ImageView fitHeight="200.0" fitWidth="204.0" layoutX="678.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/przekroj_belki.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="739.0" layoutY="40.0" text="ZAKŁAD" />
+      <CheckBox fx:id="dobreWarunkiPrzyczepnosciCheckBox1" layoutX="653.0" layoutY="358.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="W przekroju łączonych mniej niż 30% prętów" />
+      <TextField fx:id="wartosc_a_TextField1" layoutX="745.0" layoutY="289.0" onKeyReleased="#obliczKeyEvent" prefHeight="25.0" prefWidth="65.0" text="1" />
+      <Label layoutX="672.0" layoutY="293.0" prefHeight="17.0" prefWidth="65.0" text="Wartość a" />
+      <Label layoutX="815.0" layoutY="293.0" prefHeight="17.0" prefWidth="36.0" text="cm" />
+      <TextField fx:id="wartosc_b_TextField1" layoutX="745.0" layoutY="319.0" onKeyReleased="#obliczKeyEvent" prefHeight="25.0" prefWidth="65.0" text="1" />
+      <Label layoutX="672.0" layoutY="323.0" prefHeight="17.0" prefWidth="65.0" text="Wartość b" />
+      <Label layoutX="815.0" layoutY="323.0" prefHeight="17.0" prefWidth="36.0" text="cm" />
+      <Label layoutX="279.0" layoutY="40.0" text="ZAKOTWIENIE" />
+      <Label fx:id="wynik_ls" layoutX="733.0" layoutY="405.0" text="Wynik ls" textFill="#3100f5">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

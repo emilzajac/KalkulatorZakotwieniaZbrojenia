@@ -89,6 +89,14 @@ public class FormFXMLController implements Initializable {
     private TextField zbrojenieWymaganeTextField;
     @FXML
     private TextField zbrojeniePrzyjeteTextField;
+    
+    
+    @FXML
+    private Label wynik_ls;
+    
+    @FXML
+    private TextField wartosc_a_TextField1;
+    private TextField wartosc_b_TextField1;
 
     @FXML
     private void obliczActionMouseEvent(MouseEvent event) {
