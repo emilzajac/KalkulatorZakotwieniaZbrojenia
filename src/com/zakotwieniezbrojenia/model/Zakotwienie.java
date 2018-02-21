@@ -83,6 +83,11 @@ public class Zakotwienie {
         } else if (!czyDobreWarunkiPrzyczepnosci) {
             f_bd = f_bd * 0.7;
         }
+        
+        if (srednicaPreta > 32) {
+           f_bd = f_bd * (132 - srednicaPreta) / 100;
+        }
+        
         return f_bd;
     }
 

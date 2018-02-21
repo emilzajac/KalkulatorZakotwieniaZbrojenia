@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="627.0" maxWidth="966.0" minHeight="469.0" minWidth="622.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="489.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zakotwieniezbrojenia.controller.FormFXMLController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="769.0" maxWidth="966.0" minHeight="469.0" minWidth="622.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="487.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zakotwieniezbrojenia.controller.FormFXMLController">
     <children>
       <Label layoutX="235.0" layoutY="79.0" text="Klasa betonu" />
       <Label layoutX="443.0" layoutY="79.0" text="Klasa stali" />
@@ -105,7 +105,7 @@
          </children>
       </Pane>
       <Pane layoutX="13.0" layoutY="6.0" />
-      <MenuBar layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="916.0">
+      <MenuBar layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="954.0">
         <menus>
           <Menu mnemonicParsing="false" text="Plik">
             <items>
@@ -119,14 +119,13 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Separator layoutX="622.0" layoutY="27.0" orientation="VERTICAL" prefHeight="424.0" prefWidth="12.0" />
-      <ImageView fitHeight="200.0" fitWidth="204.0" layoutX="678.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <Separator layoutX="618.0" layoutY="27.0" orientation="VERTICAL" prefHeight="440.0" prefWidth="18.0" />
+      <ImageView fitHeight="200.0" fitWidth="204.0" layoutX="684.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/przekroj_belki.PNG" />
          </image>
       </ImageView>
       <Label layoutX="739.0" layoutY="40.0" text="ZAKŁAD" />
-      <CheckBox fx:id="dobreWarunkiPrzyczepnosciCheckBox1" layoutX="653.0" layoutY="358.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="W przekroju łączonych mniej niż 30% prętów" />
       <TextField fx:id="wartosc_a_TextField1" layoutX="745.0" layoutY="289.0" onKeyReleased="#obliczKeyEvent" prefHeight="25.0" prefWidth="65.0" text="1" />
       <Label layoutX="672.0" layoutY="293.0" prefHeight="17.0" prefWidth="65.0" text="Wartość a" />
       <Label layoutX="815.0" layoutY="293.0" prefHeight="17.0" prefWidth="36.0" text="cm" />
@@ -134,10 +133,21 @@
       <Label layoutX="672.0" layoutY="323.0" prefHeight="17.0" prefWidth="65.0" text="Wartość b" />
       <Label layoutX="815.0" layoutY="323.0" prefHeight="17.0" prefWidth="36.0" text="cm" />
       <Label layoutX="279.0" layoutY="40.0" text="ZAKOTWIENIE" />
-      <Label fx:id="wynik_ls" layoutX="733.0" layoutY="405.0" text="Wynik ls" textFill="#3100f5">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
+      <CheckBox fx:id="MniejNiz30ProcentPretowCheckBox1" layoutX="648.0" layoutY="359.0" mnemonicParsing="false" onMouseReleased="#obliczActionMouseEvent" text="W przekroju łączonych mniej niż 30% prętów" />
+      <Pane id="pane" layoutX="628.0" layoutY="380.0" prefHeight="94.0" prefWidth="308.0" stylesheets="@Style.css">
+         <children>
+            <Label layoutX="25.0" layoutY="7.0" style="-fx-background-color: whitesmoke;" text="Wyniki" />
+            <VBox alignment="CENTER" layoutX="22.0" layoutY="27.0" prefHeight="52.0" prefWidth="264.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="176.0" text="Wymagana długość zakładu ls" wrapText="true" />
+                  <Label fx:id="wynik_ls" text="Wynik ls" textFill="#3100f5">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
     </children>
 </AnchorPane>

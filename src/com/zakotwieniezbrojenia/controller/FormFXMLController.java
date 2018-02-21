@@ -8,6 +8,7 @@ package com.zakotwieniezbrojenia.controller;
 import com.zakotwieniezbrojenia.model.Beton;
 import com.zakotwieniezbrojenia.model.Zakotwienie;
 import com.zakotwieniezbrojenia.model.PretZbrojeniowy;
+import com.zakotwieniezbrojenia.model.Zaklad;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ResourceBundle;
@@ -96,12 +97,16 @@ public class FormFXMLController implements Initializable {
     
     @FXML
     private TextField wartosc_a_TextField1;
+    @FXML
     private TextField wartosc_b_TextField1;
+    
+    @FXML
+    private CheckBox MniejNiz30ProcentPretowCheckBox1;
 
     @FXML
     private void obliczActionMouseEvent(MouseEvent event) {
         try {
-            obliczZakotwieniePreta();
+            oblicz();
         } catch (Exception e) {
             alert();
         }      
@@ -110,7 +115,7 @@ public class FormFXMLController implements Initializable {
     @FXML
     private void obliczActionEvent(ActionEvent event) {
         try {
-            obliczZakotwieniePreta();
+            oblicz();
         } catch (Exception e) {
             alert();
         }
@@ -119,7 +124,7 @@ public class FormFXMLController implements Initializable {
     @FXML
     private void obliczKeyEvent(KeyEvent event) {
         try {
-            obliczZakotwieniePreta();
+            oblicz();
         } catch (Exception e) {
         }
     }
@@ -162,7 +167,7 @@ public class FormFXMLController implements Initializable {
         alert.showAndWait();
     }
 
-    public void obliczZakotwieniePreta() throws Exception {
+    public void oblicz() throws Exception {
         PretZbrojeniowy p = new PretZbrojeniowy(
                 (int) srednicaPretaComboBox.getValue(),
                 (String) klasaStaliComboBox.getValue());
@@ -182,14 +187,31 @@ public class FormFXMLController implements Initializable {
                 //Zamiana na kropkę gdy użytkownik wpisze przecinek
                 Double.valueOf(zbrojeniePrzyjeteTextField.getText().replace(',', '.')),
                 Double.valueOf(zbrojenieWymaganeTextField.getText().replace(',', '.')));
-
+        
+        Zaklad zaklad = new Zaklad(
+                MniejNiz30ProcentPretowCheckBox1.isSelected(), 
+                Double.valueOf(wartosc_a_TextField1.getText().replace(',', '.')),
+                Double.valueOf(wartosc_b_TextField1.getText().replace(',', '.')),
+                pretRozciaganyRadioButton.isSelected(), 
+                p.getSrednica() / 10);
+        
+        System.out.println("alfa_1: " + zaklad.alfa_1());
+       
         DecimalFormat df = new DecimalFormat(".#");
         String lb = String.valueOf(df.format(dlugoscZakotwienia.podstawowaDlugoscZakotwienia_lb() / 10));
         String lbd = String.valueOf(df.format(dlugoscZakotwienia.obliczeniowaDlugoscZakotwienia_l_bd() / 10));
         String lb_min = String.valueOf(df.format(dlugoscZakotwienia.minimalnaDlugoscZakotwienia_lb_min() / 10));
+        
+        String ls = String.valueOf(df.format(
+                zaklad.dlugoscZakladu_ls(
+                dlugoscZakotwienia.obliczeniowaDlugoscZakotwienia_l_bd(),
+                dlugoscZakotwienia.podstawowaDlugoscZakotwienia_lb(),
+                dlugoscZakotwienia.alfa_A()) / 10));
 
         wynik_lb.setText(lb + " cm");
         wynik_lbd.setText(lbd + " cm");
         wynik_lb_min.setText(lb_min + " cm");
+        
+        wynik_ls.setText(ls + " cm");
     }
 }

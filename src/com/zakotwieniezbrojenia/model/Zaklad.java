@@ -44,22 +44,18 @@ public class Zaklad {
        
        if (!czyRozciagany) {
            parametrAlfa_1 = 1.0;
-       }else if (czyRozciagany &
-               wprzekrojuLaczanychMniejNiz30ProcentPretow & 
-               czyParametr_a_WiekszyRownyOd10Srednic & 
-               czyParametr_b_WiekszyRownyOd5Srednic) 
-       {
+       }
+       
+       if (czyRozciagany && wprzekrojuLaczanychMniejNiz30ProcentPretow && czyParametr_a_WiekszyRownyOd10Srednic 
+               && czyParametr_b_WiekszyRownyOd5Srednic){
            parametrAlfa_1 = 1.0;
-       }else if ((czyRozciagany &
-               !wprzekrojuLaczanychMniejNiz30ProcentPretow) || 
-               !czyParametr_a_WiekszyRownyOd10Srednic || 
-               !czyParametr_b_WiekszyRownyOd5Srednic) 
-       {
+       }
+       if ((czyRozciagany && !wprzekrojuLaczanychMniejNiz30ProcentPretow) || (!czyParametr_a_WiekszyRownyOd10Srednic 
+               || !czyParametr_b_WiekszyRownyOd5Srednic)){
            parametrAlfa_1 = 1.4;
-       }else if ((czyRozciagany
-                & !wprzekrojuLaczanychMniejNiz30ProcentPretow)
-                & (!czyParametr_a_WiekszyRownyOd10Srednic
-                || !czyParametr_b_WiekszyRownyOd5Srednic)) {
+       }
+       if ((czyRozciagany&& !wprzekrojuLaczanychMniejNiz30ProcentPretow) && (!czyParametr_a_WiekszyRownyOd10Srednic
+                || !czyParametr_b_WiekszyRownyOd5Srednic)){
             parametrAlfa_1 = 2.0;
         }
        
